@@ -16,14 +16,13 @@ def getFreqs(fileName, numWords):
 def getFacts(fileName):
     content = readText(fileName)
 
-    ### Load spaCy's English NLP model
+    # load spacy's model
     nlp = spacy.load('en_core_web_lg')
 
-    ### Parse the text with spaCy
-    ### Our 'document' variable now contains a parsed version of text.
+    # parse text
     document = nlp(content)
 
-    ### print out all the named entities that were detected
+    # print entities
     for entity in document.ents:
         print(entity.text, entity.label_)
 
